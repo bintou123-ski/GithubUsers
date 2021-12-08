@@ -2,11 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { GithubContext } from '../context/context';
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
-const Repos = () => {
-  const{repos} = React.useContext(GithubContext);
-  return (
-    <ExampleChart/>
-  );
+import Info from "./Info";
+import Followers from "./Followers";
+
+const Repos = () =>{
+  const {repos} = React.useContext(GithubContext);
+  return(
+    <section className="section">
+      <Wrapper className="section-center">
+         <Pie3D />
+         <Doughnut2D/>
+         <Column3D/>
+         <Bar3D/>
+        
+    </Wrapper>
+    </section>
+  )
 };
 
 const Wrapper = styled.div`
@@ -16,11 +27,9 @@ const Wrapper = styled.div`
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
   }
-
   @media (min-width: 1200px) {
     grid-template-columns: 2fr 3fr;
   }
-
   div {
     width: 100% !important;
   }
